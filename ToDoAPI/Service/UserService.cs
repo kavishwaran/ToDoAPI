@@ -27,9 +27,18 @@ namespace ToDoAPI.Service
             user.Id = 0;
             return user;
         }
-        public Task<bool> DeleteRestaurant(int id)
+        public async Task<bool> DeleteRestaurant(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _userRepo.RemoveAsync(id);
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
 
         public async Task<List<User>> GetAllUsers()

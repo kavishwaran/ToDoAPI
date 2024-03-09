@@ -220,7 +220,7 @@ namespace ToDoAPI.Controllers
                 } 
                 if (await _toDoListService.DeleteToDoList(id))
                 {
-                    return await SuccessRequestResponse(toDoList);
+                    return await SuccessRequestResponse("");
                 }
                 return await BadRequestResponse("Something went wrong");
 

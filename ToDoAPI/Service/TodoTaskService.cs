@@ -20,9 +20,18 @@ namespace ToDoAPI.Service
             todoTask.Id = 0;
             return todoTask;
         }
-        public Task<bool> DeleteToDoTask(int id)
+        public async Task<bool> DeleteToDoTask(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await _toDoTaskRepository.RemoveAsync(id);
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
 
         public async Task<List<TodoTask>> GetAllToDoTask()
